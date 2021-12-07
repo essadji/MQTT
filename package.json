@@ -1,5 +1,13 @@
 {
+  "name": "1999",
+  "version": "0.0.0-beta.1",
+  "description": "MONGO & LORA API",
+  "main": "server.js",
+  "scripts": {
+    "pm2": "pm2 start server.js --watch --ignore-watch='node_modules' --name='1999 API'"
+  },
   "dependencies": {
+    "express": "^4.17.1",
     "mongodb": "^4.2.0",
     "mqtt": "^4.2.8"
   }
