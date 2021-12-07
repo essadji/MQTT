@@ -1,4 +1,5 @@
-//#region MQTT
+//#region // MQTT //
+////////////////////
 const MQTT = require('mqtt')
 const MQTT_HOST = 'eu1.cloud.thethings.network'
 const MQTT_PORT = '1883'
@@ -15,8 +16,9 @@ const client = MQTT.connect(connectUrl, {
 })
 
 const TOPIC = 'v3/#'
-//#endregion MQTT
-/////////////////// 
+///////////////////////
+//#endregion // MQTT //
+
 //#region // MONGO //
 /////////////////////
 const X = require('express');
@@ -24,63 +26,42 @@ const GO = X.Router();
 const { MongoClient } = require("mongodb");
 const URI = "mongodb://localhost/";
 const CLIENT = new MongoClient(URI);
+const DB = CLIENT.db('MyProject').collection('Collection');
 ////////////////////////
 //#endregion // MONGO //
 
-let newEntry = {
-    "date": new Date(),
-    "test": "just another test, adding as random value of the day: " + Math.random()
-}
-
-//#region MQTT CODE
+//#region // MQTT CODE //
+/////////////////////////
 client.on('connect', () => {
     console.log('Connected')
     client.subscribe([TOPIC], () => {
         console.log(`Subscribe to TOPIC '${TOPIC}'`)
     })
 })
-client.on('message', (TOPIC, payload) => {
-    mqttData.push(payload.toString());
+client.on('message', async (TOPIC, payload) => {
     // insert
-    const insertResult = await DB.insertMany([payload]);
+    await CLIENT.connect();
+    await CLIENT.db("admin").command({ ping: 1 });
+    // console.log(typeof payload) // = buffer UINT8 array
+    // const insertResult = await DB.insertMany([JSON.parse(payload.toString())]);
+    const insertResult = await DB.insertMany([JSON.parse(payload)]);
     console.log('INSERT =>', insertResult);
-    // console.log('Received Message:', TOPIC, payload.toString())
 })
-//#endregion MQTT CODE
-//////////////////////////
-async function main() {
+///////////////////////
+//#endregion // MQTT //
+
+const MAIN = async () => {
     await CLIENT.connect();
     await CLIENT.db("admin").command({ ping: 1 });
     console.log("Connected successfully to MongoDB");
-
-    const DB = CLIENT.db('MyProject').collection('Collection');
-
-    // find all
-    const findResult = await DB.find({}).toArray();
-
-    // find some
-    // const findResult = await DB.find({
-    //  name: "Lemony Snicket",
-    //  date: {
-    //      $gte: new Date(new Date().setHours(00, 00, 00)),
-    //      $lt: new Date(new Date().setHours(23, 59, 59)),
-    //  },
-    // });
-
-    // console.log('RESULTS =>', findResult);
-
-    // insert
-    // const insertResult = await DB.insertMany([newEntry]);
-
-    // console.log('INSERT =>', insertResult);
-
+    const findResult = await DB.find({}).toArray(); // return all
     return findResult;
 }
+
 const IOT = async () => {
     await CLIENT.connect();
     await CLIENT.db("admin").command({ ping: 1 });
     console.log("Connected successfully to MongoDB");
-    const DB = CLIENT.db('MyProject').collection('Collection');
     const findResult = await DB.find({ name: { $exists: true } }).toArray();
     return findResult;
 }
@@ -97,7 +78,7 @@ GO.route('/all').get((req, res) => {
 })
 
 GO.route('/dump').get((req, res) => {
-    main()
+    MAIN()
         .then(
             (x) => {
                 res.send(x);

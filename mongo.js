@@ -5,6 +5,7 @@ const GO = X.Router();
 const { MongoClient } = require("mongodb");
 const URI = "mongodb://localhost/";
 const CLIENT = new MongoClient(URI);
+const DB = CLIENT.db('MyProject').collection('Collection');
 ////////////////////////
 //#endregion // MONGO //
 
@@ -13,12 +14,11 @@ let newEntry = {
     "test": "just another test, adding as random value of the day: " + Math.random()
 }
 
-async function main() {
+const MAIN = async () => {
     await CLIENT.connect();
     await CLIENT.db("admin").command({ ping: 1 });
     console.log("Connected successfully to MongoDB");
 
-    const DB = CLIENT.db('MyProject').collection('Collection');
 
     // find all
     const findResult = await DB.find({}).toArray();
@@ -45,16 +45,6 @@ const IOT = async () => {
     await CLIENT.connect();
     await CLIENT.db("admin").command({ ping: 1 });
     console.log("Connected successfully to MongoDB");
-    const DB = CLIENT.db('MyProject').collection('Collection');
-    const findResult = await DB.find({ name: { $exists: true } }).toArray();
-    return findResult;
-}
-
-async function iot() {
-    await CLIENT.connect();
-    await CLIENT.db("admin").command({ ping: 1 });
-    console.log("Connected successfully to MongoDB");
-    const DB = CLIENT.db('MyProject').collection('Collection');
     const findResult = await DB.find({ name: { $exists: true } }).toArray();
     return findResult;
 }
@@ -71,7 +61,7 @@ GO.route('/iot/all').get((req, res) => {
 })
 
 GO.route('/all').get((req, res) => {
-    main()
+    MAIN()
         .then(
             (x) => {
                 res.send(x);
