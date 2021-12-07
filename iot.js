@@ -1,3 +1,22 @@
+//#region MQTT
+const MQTT = require('mqtt')
+const MQTT_HOST = 'eu1.cloud.thethings.network'
+const MQTT_PORT = '1883'
+const MQTT_clientId = `mqtt_${Math.random().toString(16).slice(3)}`
+
+const connectUrl = `mqtt://${MQTT_HOST}:${MQTT_PORT}`
+const client = MQTT.connect(connectUrl, {
+    clientId: MQTT_clientId,
+    clean: true,
+    connectTimeout: 4000,
+    username: 'iot-sensor-frontend-gevorderd@ttn',
+    password: 'NNSXS.UGJCMHGZ6FBZN5N3PU2ZDNF4N2BVU7OFA3QBD6Q.IYECKMGUM55OO6K5SHI3VURFRVMHKKAV36TIGATW2VFGLMRJJGZA',
+    reconnectPeriod: 1000,
+})
+
+const TOPIC = 'v3/#'
+//#endregion MQTT
+/////////////////// 
 //#region // MONGO //
 /////////////////////
 const X = require('express');
@@ -13,6 +32,22 @@ let newEntry = {
     "test": "just another test, adding as random value of the day: " + Math.random()
 }
 
+//#region MQTT CODE
+client.on('connect', () => {
+    console.log('Connected')
+    client.subscribe([TOPIC], () => {
+        console.log(`Subscribe to TOPIC '${TOPIC}'`)
+    })
+})
+client.on('message', (TOPIC, payload) => {
+    mqttData.push(payload.toString());
+    // insert
+    const insertResult = await DB.insertMany([payload]);
+    console.log('INSERT =>', insertResult);
+    // console.log('Received Message:', TOPIC, payload.toString())
+})
+//#endregion MQTT CODE
+//////////////////////////
 async function main() {
     await CLIENT.connect();
     await CLIENT.db("admin").command({ ping: 1 });
