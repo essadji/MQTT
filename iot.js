@@ -62,7 +62,11 @@ const IOT = async () => {
     await CLIENT.connect();
     await CLIENT.db("admin").command({ ping: 1 });
     console.log("Connected successfully to MongoDB");
-    const findResult = await DB.find({ name: { $exists: true } }).toArray();
+    const findResult = await DB.find({ 
+        "end_device_ids.device_id": "luchtsensor" 
+    }).toArray();
+    // "end_device_ids": { $exists: true }
+    // name: { $exists: true }
     return findResult;
 }
 

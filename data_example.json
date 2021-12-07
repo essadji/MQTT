@@ -1,0 +1,179 @@
+    {
+        "_id": "61afef206d85c3b78dfaf61d",
+        "end_device_ids": {
+            "device_id": "luchtsensor",
+            "application_ids": {
+                "application_id": "iot-sensor-frontend-gevorderd"
+            },
+            "dev_eui": "70B3D57ED004969D",
+            "join_eui": "0000000000000000",
+            "dev_addr": "260B60DE"
+        },
+        "correlation_ids": [
+            "as:up:01FPBKW5802QWH6E3A1SGAWXGF",
+            "gs:conn:01FNXTS396VSSX82RQ175EHPXJ",
+            "gs:up:host:01FNXTS3AF6C9ZBEQVS1VCNEYP",
+            "gs:uplink:01FPBKW51CRE457A79YHEX5FGW",
+            "ns:uplink:01FPBKW51ET6WJH64WXYRJERE1",
+            "rpc:/ttn.lorawan.v3.GsNs/HandleUplink:01FPBKW51EPA6Y0H1F9M278TQH",
+            "rpc:/ttn.lorawan.v3.NsAs/HandleUplink:01FPBKW5806YCYYSDVMG7X9QMY"
+        ],
+        "received_at": "2021-12-07T23:32:48.002793291Z",
+        "uplink_message": {
+            "session_key_id": "AX2XFffubsuS2rzR8u0JwQ==",
+            "f_port": 1,
+            "f_cnt": 237,
+            "frm_payload": "NzgzAAA=",
+            "rx_metadata": [
+                {
+                    "gateway_ids": {
+                        "gateway_id": "sint-truiden",
+                        "eui": "00800000A00035E3"
+                    },
+                    "timestamp": 3935815179,
+                    "rssi": -118,
+                    "channel_rssi": -118,
+                    "snr": -0.8,
+                    "uplink_token": "ChoKGAoMc2ludC10cnVpZGVuEggAgAAAoAA14xCLjN/UDhoMCJ/ev40GEInek/gCIPi19obGsWk=",
+                    "channel_index": 1
+                }
+            ],
+            "settings": {
+                "data_rate": {
+                    "lora": {
+                        "bandwidth": 125000,
+                        "spreading_factor": 7
+                    }
+                },
+                "coding_rate": "4/5",
+                "frequency": "868300000",
+                "timestamp": 3935815179
+            },
+            "received_at": "2021-12-07T23:32:47.790589047Z",
+            "consumed_airtime": "0.051456s",
+            "network_ids": {
+                "net_id": "000013",
+                "tenant_id": "ttn",
+                "cluster_id": "ttn-eu1"
+            }
+        }
+    },
+    {
+        "_id": "61afef2b6d85c3b78dfaf61e",
+        "end_device_ids": {
+            "device_id": "luchtsensor",
+            "application_ids": {
+                "application_id": "iot-sensor-frontend-gevorderd"
+            },
+            "dev_eui": "70B3D57ED004969D",
+            "join_eui": "0000000000000000",
+            "dev_addr": "260B60DE"
+        },
+        "correlation_ids": [
+            "as:up:01FPBKWG2V1WEE617ERMA4XQG6",
+            "gs:conn:01FNXTS396VSSX82RQ175EHPXJ",
+            "gs:up:host:01FNXTS3AF6C9ZBEQVS1VCNEYP",
+            "gs:uplink:01FPBKWFW6JXR8CATVYQ9AZ4X9",
+            "ns:uplink:01FPBKWFW8RAAF453ZA6FR1DHT",
+            "rpc:/ttn.lorawan.v3.GsNs/HandleUplink:01FPBKWFW85XQ2QFYHF3F6AHAP",
+            "rpc:/ttn.lorawan.v3.NsAs/HandleUplink:01FPBKWG2VW8VEVFV7BMGDQ3MC"
+        ],
+        "received_at": "2021-12-07T23:32:59.100893060Z",
+        "uplink_message": {
+            "session_key_id": "AX2XFffubsuS2rzR8u0JwQ==",
+            "f_port": 1,
+            "f_cnt": 238,
+            "frm_payload": "Nzc0AAA=",
+            "rx_metadata": [
+                {
+                    "gateway_ids": {
+                        "gateway_id": "sint-truiden",
+                        "eui": "00800000A00035E3"
+                    },
+                    "timestamp": 3946908107,
+                    "rssi": -119,
+                    "channel_rssi": -119,
+                    "snr": -2.8,
+                    "uplink_token": "ChoKGAoMc2ludC10cnVpZGVuEggAgAAAoAA14xDLk4TaDhoMCKrev40GENKR6KYDIPiBubDvsWk="
+                }
+            ],
+            "settings": {
+                "data_rate": {
+                    "lora": {
+                        "bandwidth": 125000,
+                        "spreading_factor": 7
+                    }
+                },
+                "coding_rate": "4/5",
+                "frequency": "868100000",
+                "timestamp": 3946908107
+            },
+            "received_at": "2021-12-07T23:32:58.888298838Z",
+            "consumed_airtime": "0.051456s",
+            "network_ids": {
+                "net_id": "000013",
+                "tenant_id": "ttn",
+                "cluster_id": "ttn-eu1"
+            }
+        }
+    },
+    {
+        "_id": "61afef366d85c3b78dfaf61f",
+        "end_device_ids": {
+            "device_id": "luchtsensor",
+            "application_ids": {
+                "application_id": "iot-sensor-frontend-gevorderd"
+            },
+            "dev_eui": "70B3D57ED004969D",
+            "join_eui": "0000000000000000",
+            "dev_addr": "260B60DE"
+        },
+        "correlation_ids": [
+            "as:up:01FPBKWTX49GRHM1QXCPVP52XV",
+            "gs:conn:01FNXTS396VSSX82RQ175EHPXJ",
+            "gs:up:host:01FNXTS3AF6C9ZBEQVS1VCNEYP",
+            "gs:uplink:01FPBKWTPJ9KXDNR58KXTN2NTA",
+            "ns:uplink:01FPBKWTPKA16AQYX6GJPWRAWN",
+            "rpc:/ttn.lorawan.v3.GsNs/HandleUplink:01FPBKWTPK13YCVGYN7C4J18CJ",
+            "rpc:/ttn.lorawan.v3.NsAs/HandleUplink:01FPBKWTX3PJY8SGJ81FWKYTCA"
+        ],
+        "received_at": "2021-12-07T23:33:10.181032356Z",
+        "uplink_message": {
+            "session_key_id": "AX2XFffubsuS2rzR8u0JwQ==",
+            "f_port": 1,
+            "f_cnt": 239,
+            "frm_payload": "Nzc0AAA=",
+            "rx_metadata": [
+                {
+                    "gateway_ids": {
+                        "gateway_id": "sint-truiden",
+                        "eui": "00800000A00035E3"
+                    },
+                    "timestamp": 3957999835,
+                    "rssi": -117,
+                    "channel_rssi": -117,
+                    "snr": -2,
+                    "uplink_token": "ChoKGAoMc2ludC10cnVpZGVuEggAgAAAoAA14xDbkanfDhoMCLXev40GEMDF084DIPiustmYsmk=",
+                    "channel_index": 2
+                }
+            ],
+            "settings": {
+                "data_rate": {
+                    "lora": {
+                        "bandwidth": 125000,
+                        "spreading_factor": 7
+                    }
+                },
+                "coding_rate": "4/5",
+                "frequency": "868500000",
+                "timestamp": 3957999835
+            },
+            "received_at": "2021-12-07T23:33:09.971792598Z",
+            "consumed_airtime": "0.051456s",
+            "network_ids": {
+                "net_id": "000013",
+                "tenant_id": "ttn",
+                "cluster_id": "ttn-eu1"
+            }
+        }
+    }
