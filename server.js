@@ -24,6 +24,7 @@ const PORT = 1999;
 ///////////////////////
 // ROUTERS
 APP.use('/mongo', require('./mongo.js'));
+APP.use('/iot', require('./iot.js'));
 // STATIC
 APP.use('/', X.static(__dirname + '/FRONT'));
 // LAUNCH
