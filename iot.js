@@ -27,6 +27,7 @@ const { MongoClient } = require("mongodb");
 const URI = "mongodb://localhost/";
 const CLIENT = new MongoClient(URI);
 const DB = CLIENT.db('MyProject').collection('Collection');
+const CORS = require('cors');
 ////////////////////////
 //#endregion // MONGO //
 
@@ -70,7 +71,7 @@ const IOT = async () => {
     return findResult;
 }
 
-GO.route('/all').get((req, res) => {
+GO.route('/all').get(CORS(),(req, res) => {
     IOT()
         .then(
             (x) => {
@@ -81,7 +82,7 @@ GO.route('/all').get((req, res) => {
         .finally(() => CLIENT.close());
 })
 
-GO.route('/dump').get((req, res) => {
+GO.route('/dump').get(CORS(),(req, res) => {
     MAIN()
         .then(
             (x) => {

@@ -7,6 +7,7 @@
     "pm2": "pm2 start server.js --watch --ignore-watch='node_modules' --name='1999 API'"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^4.2.0",
     "mqtt": "^4.2.8"

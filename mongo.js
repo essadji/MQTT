@@ -6,6 +6,7 @@ const { MongoClient } = require("mongodb");
 const URI = "mongodb://localhost/";
 const CLIENT = new MongoClient(URI);
 const DB = CLIENT.db('MyProject').collection('Collection');
+const CORS = require('cors');
 ////////////////////////
 //#endregion // MONGO //
 
@@ -78,7 +79,7 @@ GO.route('/json').get((req, res) => {
     );
 })
 
-GO.route('/string').get((req, res) => {
+GO.route('/string').get(CORS(),(req, res) => {
     res.send("Why, ... hello there, old geezer!");
 })
 
